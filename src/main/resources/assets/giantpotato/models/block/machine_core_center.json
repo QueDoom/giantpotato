@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.11",
+	"textures": {
+		"particle": "#core"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#core"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#core"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#core"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#core"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#core"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#core"}
+			}
+		}
+	]
+}

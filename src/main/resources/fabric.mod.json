@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "giantpotato",
+	"version": "${version}",
+	"name": "Giant Potato",
+	"description": "Technology mod based around potatoes",
+	"authors": [
+		"QueDoom"
+	],
+	"contact": {
+		"homepage": "https://quedoom.com/",
+		"sources": ""
+	},
+	"license": "MIT",
+	"icon": "assets/giantpotato/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.quedoom.giant_potato.GiantPotato"
+		],
+		"fabric-datagen": [
+			"net.quedoom.giant_potato.GiantPotatoDataGenerator"
+		],
+		"client": [
+			"net.quedoom.giant_potato.GiantPotatoClient"
+		]
+	},
+	"mixins": [
+		"giantpotato.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.1.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

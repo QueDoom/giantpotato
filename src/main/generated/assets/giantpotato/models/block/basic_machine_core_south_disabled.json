@@ -1,0 +1,7 @@
+{
+  "parent": "giantpotato:block/machine_core_arrows_south",
+  "textures": {
+    "arrows": "giantpotato:block/basic_machine_core_pointing_disabled",
+    "front": "giantpotato:block/basic_machine_core_front_disabled"
+  }
+}
