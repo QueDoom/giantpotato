@@ -7,6 +7,7 @@ import net.minecraft.resources.Identifier;
 
 import net.quedoom.giant_potato.api.LoadedMods;
 import net.quedoom.giant_potato.init.ModBlocks;
+import net.quedoom.giant_potato.init.ModCreativeModeTabs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,5 +30,7 @@ public class GiantPotato implements ModInitializer {
 		LoadedMods.set();
 
 		ModBlocks.register();
+
+		ModCreativeModeTabs.register();
 	}
 }

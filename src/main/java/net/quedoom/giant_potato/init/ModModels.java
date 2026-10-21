@@ -11,22 +11,50 @@ import net.quedoom.giant_potato.GiantPotato;
 import java.util.Optional;
 
 public class ModModels {
+    // region machine core
     public static final ModelTemplate MACHINE_CORE = block("machine_core_center", "_center", TextureSlots.CORE);
     public static final ModelTemplate MACHINE_CORE_ITEM = block("machine_core_center", TextureSlots.CORE);
 
-    public static final ModelTemplate MACHINE_CORE_ARROWS_NORTH = block("machine_core_arrows_north", "_north", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
-    public static final ModelTemplate MACHINE_CORE_ARROWS_EAST = block("machine_core_arrows_east", "_east", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
-    public static final ModelTemplate MACHINE_CORE_ARROWS_SOUTH = block("machine_core_arrows_south", "_south", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
-    public static final ModelTemplate MACHINE_CORE_ARROWS_WEST = block("machine_core_arrows_west", "_west", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
-    public static final ModelTemplate MACHINE_CORE_ARROWS_UP = block("machine_core_arrows_up", "_up", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
-    public static final ModelTemplate MACHINE_CORE_ARROWS_DOWN = block("machine_core_arrows_down", "_down", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_NORTH = block("machine_arrows_north", "_north", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_EAST = block("machine_arrows_east", "_east", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_SOUTH = block("machine_arrows_south", "_south", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_WEST = block("machine_arrows_west", "_west", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_UP = block("machine_arrows_up", "_up", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_DOWN = block("machine_arrows_down", "_down", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
 
-    public static final ModelTemplate MACHINE_CORE_ARROWS_NORTH_DISABLED = block("machine_core_arrows_north", "_north_disabled", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
-    public static final ModelTemplate MACHINE_CORE_ARROWS_EAST_DISABLED = block("machine_core_arrows_east", "_east_disabled", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
-    public static final ModelTemplate MACHINE_CORE_ARROWS_SOUTH_DISABLED = block("machine_core_arrows_south", "_south_disabled", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
-    public static final ModelTemplate MACHINE_CORE_ARROWS_WEST_DISABLED = block("machine_core_arrows_west", "_west_disabled", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
-    public static final ModelTemplate MACHINE_CORE_ARROWS_UP_DISABLED = block("machine_core_arrows_up", "_up_disabled", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
-    public static final ModelTemplate MACHINE_CORE_ARROWS_DOWN_DISABLED = block("machine_core_arrows_down", "_down_disabled", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_NORTH_DISABLED = block("machine_core_arrows_north", "_north_disabled", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_EAST_DISABLED = block("machine_core_arrows_east", "_east_disabled", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_SOUTH_DISABLED = block("machine_core_arrows_south", "_south_disabled", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_WEST_DISABLED = block("machine_core_arrows_west", "_west_disabled", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_UP_DISABLED = block("machine_core_arrows_up", "_up_disabled", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_DOWN_DISABLED = block("machine_core_arrows_down", "_down_disabled", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    // endregion machine core
+
+    // region machine component
+    public static final ModelTemplate MACHINE_COMPONENT = block("machine_component_center", "_center", TextureSlots.COMPONENT);
+    public static final ModelTemplate MACHINE_COMPONENT_ITEM = block("machine_component_center", TextureSlots.COMPONENT);
+
+    public static final ModelTemplate MACHINE_ARROWS_NORTH_UNSUPPORTED = block("machine_component_arrows_north", "_north_unsupported", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_EAST_UNSUPPORTED = block("machine_component_arrows_east", "_east_unsupported", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_SOUTH_UNSUPPORTED = block("machine_component_arrows_south", "_south_unsupported", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_WEST_UNSUPPORTED = block("machine_component_arrows_west", "_west_unsupported", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_UP_UNSUPPORTED = block("machine_component_arrows_up", "_up_unsupported", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_DOWN_UNSUPPORTED = block("machine_component_arrows_down", "_down_unsupported", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+
+    public static final ModelTemplate MACHINE_ARROWS_NORTH_CAPACITY = block("machine_component_arrows_north", "_north_capacity", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_EAST_CAPACITY = block("machine_component_arrows_east", "_east_capacity", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_SOUTH_CAPACITY = block("machine_component_arrows_south", "_south_capacity", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_WEST_CAPACITY = block("machine_component_arrows_west", "_west_capacity", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_UP_CAPACITY = block("machine_component_arrows_up", "_up_capacity", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_DOWN_CAPACITY = block("machine_component_arrows_down", "_down_capacity", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+
+    public static final ModelTemplate MACHINE_ARROWS_NORTH_STORAGE = block("machine_component_arrows_north", "_north_storage", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_EAST_STORAGE = block("machine_component_arrows_east", "_east_storage", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_SOUTH_STORAGE = block("machine_component_arrows_south", "_south_storage", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_WEST_STORAGE = block("machine_component_arrows_west", "_west_storage", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_UP_STORAGE = block("machine_component_arrows_up", "_up_storage", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    public static final ModelTemplate MACHINE_ARROWS_DOWN_STORAGE = block("machine_component_arrows_down", "_down_storage", TextureSlots.SIDE_ARROWS, TextureSlots.FRONT_ARROWS);
+    // endregion machine component
 
     // helper method for creating Models
     private static ModelTemplate block(String parent, TextureSlot... requiredTextureKeys) {
@@ -41,6 +69,7 @@ public class ModModels {
 
     public static class TextureSlots {
         public static final TextureSlot CORE = TextureSlot.create("core", TextureSlot.ALL);
+        public static final TextureSlot COMPONENT = TextureSlot.create("component", TextureSlot.ALL);
         public static final TextureSlot SIDE_ARROWS = TextureSlot.create("arrows", TextureSlot.SIDE);
         public static final TextureSlot FRONT_ARROWS = TextureSlot.create("front", TextureSlot.FRONT);
     }
@@ -49,6 +78,10 @@ public class ModModels {
         public static TextureMapping core(Block block) {
             return new TextureMapping()
                     .put(TextureSlots.CORE, new Material(ModelLocationUtils.getModelLocation(block)));
+        }
+        public static TextureMapping component(Block block) {
+            return new TextureMapping()
+                    .put(TextureSlots.COMPONENT, new Material(ModelLocationUtils.getModelLocation(block)));
         }
         public static TextureMapping arrows(Block block) {
             return new TextureMapping()
@@ -62,16 +95,34 @@ public class ModModels {
                     .put(TextureSlots.SIDE_ARROWS, new Material(ModelLocationUtils.getModelLocation(block, "_pointing_disabled")))
                     ;
         }
+        public static TextureMapping storageArrows(Block block) {
+            return new TextureMapping()
+                    .put(TextureSlots.FRONT_ARROWS, new Material(GiantPotato.of("block/basic_machine_core_front")))
+                    .put(TextureSlots.SIDE_ARROWS, new Material(ModelLocationUtils.getModelLocation(block, "_pointing_storage")))
+                    ;
+        }
+        public static TextureMapping unsupportedArrows(Block block) {
+            return new TextureMapping()
+                    .put(TextureSlots.FRONT_ARROWS, new Material(GiantPotato.of("basic_machine_core_front_disabled")))
+                    .put(TextureSlots.SIDE_ARROWS, new Material(ModelLocationUtils.getModelLocation(block, "_pointing_unsupported")))
+                    ;
+        }
+        public static TextureMapping capacityReachedArrows(Block block) {
+            return new TextureMapping()
+                    .put(TextureSlots.FRONT_ARROWS, new Material(GiantPotato.of("basic_machine_core_front_disabled")))
+                    .put(TextureSlots.SIDE_ARROWS, new Material(ModelLocationUtils.getModelLocation(block, "_pointing_capacity")))
+                    ;
+        }
         public static TextureMapping basicTierArrows() {
             return new TextureMapping()
-                    .put(TextureSlots.FRONT_ARROWS, new Material(GiantPotato.of("block/basic_tier_machine_core_front")))
-                    .put(TextureSlots.SIDE_ARROWS, new Material(GiantPotato.of("block/basic_tier_machine_core_pointing")))
+                    .put(TextureSlots.FRONT_ARROWS, new Material(GiantPotato.of("block/basic_machine_core_front")))
+                    .put(TextureSlots.SIDE_ARROWS, new Material(GiantPotato.of("block/basic_machine_core_pointing")))
                     ;
         }
         public static TextureMapping basicTierArrowsDisabled() {
             return new TextureMapping()
-                    .put(TextureSlots.FRONT_ARROWS, new Material(GiantPotato.of("block/basic_tier_machine_core_front_disabled")))
-                    .put(TextureSlots.SIDE_ARROWS, new Material(GiantPotato.of("block/basic_tier_machine_core_pointing_disabled")))
+                    .put(TextureSlots.FRONT_ARROWS, new Material(GiantPotato.of("block/basic_machine_core_front_disabled")))
+                    .put(TextureSlots.SIDE_ARROWS, new Material(GiantPotato.of("block/basic_machine_core_pointing_disabled")))
                     ;
         }
     }
