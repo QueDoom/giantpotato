@@ -8,6 +8,7 @@ import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.quedoom.giant_potato.GiantPotato;
+import net.quedoom.giant_potato.block.machine.AbstractMachineComponent;
 import net.quedoom.giant_potato.init.ModBlockStateProperties;
 import net.quedoom.giant_potato.init.ModBlocks;
 import net.quedoom.giant_potato.init.ModModels;
@@ -76,22 +77,24 @@ public class GiantPotatoModels extends QueTModelProvider {
     }
 
     public void machineComponent(BlockModelGenerators generators, final Block block) {
-            Identifier centerId = ModModels.MACHINE_COMPONENT.create(block, ModModels.TextureMappings.component(block), generators.modelOutput);
-        MultiVariant center = BlockModelGenerators.plainVariant(centerId);
+            Identifier centerId = ModModels.MACHINE_COMPONENT_ON.create(block, ModModels.TextureMappings.componentOn(block), generators.modelOutput);
+        MultiVariant centerOn = BlockModelGenerators.plainVariant(centerId);
+        MultiVariant centerOff = BlockModelGenerators.plainVariant(ModModels.MACHINE_COMPONENT_OFF.create(block, ModModels.TextureMappings.componentOff(block), generators.modelOutput));
         ArrowModelsSet normal = ArrowModelsSet.of(ArrowModelTemplatesSet.normalArrow(), ModModels.TextureMappings.arrows(block), block, generators);
         ArrowModelsSet storage = ArrowModelsSet.of(ArrowModelTemplatesSet.storageArrow(), ModModels.TextureMappings.storageArrows(block), block, generators);
         ArrowModelsSet capacity = ArrowModelsSet.of(ArrowModelTemplatesSet.capacityArrow(), ModModels.TextureMappings.capacityReachedArrows(block), block, generators);
         ArrowModelsSet unsupported = ArrowModelsSet.of(ArrowModelTemplatesSet.unsupportedArrow(), ModModels.TextureMappings.unsupportedArrows(block), block, generators);
-        Identifier inventory = ModModels.MACHINE_COMPONENT_ITEM.create(block.asItem(), ModModels.TextureMappings.component(block), generators.modelOutput);
-        generators.blockStateOutput.accept(createMachineComponentBlockstate(block, center, normal, storage, unsupported, capacity));
+        Identifier inventory = ModModels.MACHINE_COMPONENT_ITEM.create(block.asItem(), ModModels.TextureMappings.componentOn(block), generators.modelOutput);
+        generators.blockStateOutput.accept(createMachineComponentBlockstate(block, centerOn, centerOff, normal, storage, unsupported, capacity));
         generators.registerSimpleItemModel(block, inventory);
     }
 
     private static BlockModelDefinitionGenerator createMachineComponentBlockstate(
-            Block block, MultiVariant center,
+            Block block, MultiVariant centerOn, MultiVariant centerOff,
             ArrowModelsSet normal, ArrowModelsSet storage, ArrowModelsSet unsupported, ArrowModelsSet capacity) {
         return MultiPartGenerator.multiPart(block)
-                .with(center)
+                .with(condition().term(AbstractMachineComponent.ON, true), centerOn)
+                .with(condition().term(AbstractMachineComponent.ON, false), centerOff)
                 .with(condition().term(ModBlockStateProperties.MACHINE_COMPONENT_FACE_NORTH, MachineComponentFace.CONNECTED), normal.north())
                 .with(condition().term(ModBlockStateProperties.MACHINE_COMPONENT_FACE_NORTH, MachineComponentFace.CONNECTED_STORAGE), storage.north())
                 .with(condition().term(ModBlockStateProperties.MACHINE_COMPONENT_FACE_NORTH, MachineComponentFace.CONNECTED_BUT_UNSUPPORTED), unsupported.north())
