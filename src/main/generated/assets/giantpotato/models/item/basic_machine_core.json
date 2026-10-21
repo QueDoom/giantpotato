@@ -1,6 +1,0 @@
-{
-  "parent": "giantpotato:block/machine_core_center",
-  "textures": {
-    "core": "giantpotato:block/basic_machine_core"
-  }
-}
