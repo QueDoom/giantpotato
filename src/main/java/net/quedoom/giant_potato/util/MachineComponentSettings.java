@@ -5,23 +5,19 @@ import net.quedoom.giant_potato.util.component.MachineComponent;
 import net.quedoom.giant_potato.util.component.MachineCore;
 import org.jspecify.annotations.Nullable;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 public class MachineComponentSettings {
-    private final String name;
-    private final MachineComponentType<? extends MachineComponent> componentType;
-    private final InputType inputType;
+    public final String name;
+    public final MachineComponentType<? extends MachineComponent> componentType;
 
-    private final List<Direction> appliedOn;
-    private final int maxAmountPerCore;
+    public final List<Direction> appliedOn;
+    public final int maxAmountPerCore;
 
     protected MachineComponentSettings(String name, MachineComponentType<? extends MachineComponent> componentType,
-                                       InputType inputType, List<Direction> appliedOn, int maxAmountPerCore) {
+                                       List<Direction> appliedOn, int maxAmountPerCore) {
         this.name = name;
         this.componentType = componentType;
-        this.inputType = inputType;
 
         this.appliedOn = appliedOn;
         this.maxAmountPerCore = maxAmountPerCore;
@@ -37,13 +33,12 @@ public class MachineComponentSettings {
     public static class Builder {
         private final String name;
         private final MachineComponentType<? extends MachineComponent> componentType;
-        private final InputType inputType;
 
         /**
          * Determines what sides the {@link MachineComponent} with this {@link MachineComponentSettings} can be on a {@link MachineCore} <br>
          * If the link is empty; all sides are available.
          */
-        private List<Direction> appliedOn = List.of();
+        private final ArrayList<Direction> appliedOn = new ArrayList<>();
         /**
          * <strong><0</strong> = No limit <br>
          * <strong>1-5</strong> = The max amount of {@link MachineComponent}s with this {@link MachineComponentSettings} can be on a {@link MachineCore} <br>
@@ -60,7 +55,6 @@ public class MachineComponentSettings {
         ) {
             this.name = name;
             this.componentType = type;
-            this.inputType = Objects.requireNonNullElse(inputType, InputType.NOT_A_STORAGE_COMPONENT);
         }
 
         private Builder(
@@ -69,15 +63,38 @@ public class MachineComponentSettings {
         ) {
             this.name = name;
             this.componentType = type;
-            this.inputType = InputType.NOT_A_STORAGE_COMPONENT;
         }
         // endregion constructors
+
+        public Builder acceptableSide(Direction side) {
+            this.appliedOn.add(side);
+            return this;
+        }
+        public Builder acceptableSides(Direction... sides) {
+            this.appliedOn.addAll(Arrays.asList(sides));
+            return this;
+        }
+        public Builder acceptableSides(ArrayList<Direction> sides) {
+            this.appliedOn.addAll(sides);
+            return this;
+        }
+
+        public Builder capacity(int maxAmountPerCore) {
+            this.maxAmountPerCore = maxAmountPerCore < 1 ? -1 : maxAmountPerCore;
+            return this;
+        }
+
+        public MachineComponentSettings build() {
+            return new MachineComponentSettings(name, componentType, appliedOn, maxAmountPerCore);
+        }
 
         @Override
         public String toString() {
             return "MachineComponentSettings#Builder[final name: " + this.name +
                     ", final componentType: " + this.componentType +
-                    ", final inputType: " + this.inputType;
+                    ", appliedOn: " + this.appliedOn +
+                    ", maxAmountPerCore: " + this.maxAmountPerCore
+                    + "]";
         }
     }
 }

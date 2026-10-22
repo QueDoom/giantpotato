@@ -10,6 +10,12 @@ public record MachineComponentType<T extends MachineComponent>(
         return new MachineComponentType<>(name, interfaceClass);
     }
 
+    public boolean compareName(String name) {
+        return this.name.equals(name);
+    }
 
+    public boolean matchingClass(Class<? extends T> typeClass) {
+        return this.interfaceClass.equals(typeClass);
+    }
 
 }

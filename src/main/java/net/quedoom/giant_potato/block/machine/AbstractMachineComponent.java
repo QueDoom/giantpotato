@@ -17,7 +17,7 @@ import net.quedoom.giant_potato.util.SlotComponentStates;
 import net.quedoom.giant_potato.util.component.MachineComponent;
 import org.jspecify.annotations.Nullable;
 
-public abstract class AbstractMachineComponent<T extends MachineComponentSettings> extends BaseEntityBlock implements MachineComponent<T> {
+public abstract class AbstractMachineComponent extends BaseEntityBlock {
     public static final EnumProperty<MachineComponentFace> NORTH = ModBlockStateProperties.MACHINE_COMPONENT_FACE_NORTH;
     public static final EnumProperty<MachineComponentFace> EAST = ModBlockStateProperties.MACHINE_COMPONENT_FACE_EAST;
     public static final EnumProperty<MachineComponentFace> SOUTH = ModBlockStateProperties.MACHINE_COMPONENT_FACE_SOUTH;

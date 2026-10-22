@@ -1,4 +1,4 @@
-package net.quedoom.giant_potato.block.entity;
+package net.quedoom.giant_potato.block.entity.machine;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
