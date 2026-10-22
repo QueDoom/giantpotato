@@ -12,10 +12,12 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.quedoom.giant_potato.init.ModBlockStateProperties;
 import net.quedoom.giant_potato.util.MachineComponentFace;
+import net.quedoom.giant_potato.util.MachineComponentSettings;
 import net.quedoom.giant_potato.util.SlotComponentStates;
+import net.quedoom.giant_potato.util.component.MachineComponent;
 import org.jspecify.annotations.Nullable;
 
-public abstract class AbstractMachineComponent extends BaseEntityBlock {
+public abstract class AbstractMachineComponent<T extends MachineComponentSettings> extends BaseEntityBlock implements MachineComponent<T> {
     public static final EnumProperty<MachineComponentFace> NORTH = ModBlockStateProperties.MACHINE_COMPONENT_FACE_NORTH;
     public static final EnumProperty<MachineComponentFace> EAST = ModBlockStateProperties.MACHINE_COMPONENT_FACE_EAST;
     public static final EnumProperty<MachineComponentFace> SOUTH = ModBlockStateProperties.MACHINE_COMPONENT_FACE_SOUTH;

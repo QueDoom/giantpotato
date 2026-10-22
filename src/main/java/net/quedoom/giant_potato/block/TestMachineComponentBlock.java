@@ -8,14 +8,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.quedoom.giant_potato.block.machine.AbstractMachineComponent;
 import org.jspecify.annotations.Nullable;
 
-public class BasicMachineComponentBlock extends AbstractMachineComponent {
-    public BasicMachineComponentBlock(Properties properties) {
+public class TestMachineComponentBlock extends AbstractMachineComponent<> {
+    public TestMachineComponentBlock(Properties properties) {
         super(properties);
     }
 
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
-        return simpleCodec(BasicMachineComponentBlock::new);
+        return simpleCodec(TestMachineComponentBlock::new);
     }
 
     @Override
