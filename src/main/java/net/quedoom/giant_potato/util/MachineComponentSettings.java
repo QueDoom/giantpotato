@@ -7,32 +7,19 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.*;
 
-public class MachineComponentSettings {
-    public final String name;
-    public final MachineComponentType<? extends MachineComponent> componentType;
-
-    public final List<Direction> appliedOn;
-    public final int maxAmountPerCore;
-
-    protected MachineComponentSettings(String name, MachineComponentType<? extends MachineComponent> componentType,
+public record MachineComponentSettings(MachineComponentType<? extends MachineComponent> componentType, int machineTier,
                                        List<Direction> appliedOn, int maxAmountPerCore) {
-        this.name = name;
-        this.componentType = componentType;
-
-        this.appliedOn = appliedOn;
-        this.maxAmountPerCore = maxAmountPerCore;
-    }
-
-    public static <T extends MachineComponent> Builder builder(String name, MachineComponentType<T> machineComponentType) {
-        return new Builder(name, machineComponentType);
-    }
-    public static <T extends MachineComponent> Builder builder(String name, MachineComponentType<T> machineComponentType, @Nullable InputType inputType) {
-        return new Builder(name, machineComponentType, inputType);
+    public static <T extends MachineComponent> Builder builder(
+            MachineComponentType<T> machineComponentType, int machineTier) {
+        return new Builder(machineComponentType, machineTier);
     }
 
     public static class Builder {
-        private final String name;
+        /**
+         * What Interface the BlockEntity extends, will most likely be {@link MachineComponent}
+         */
         private final MachineComponentType<? extends MachineComponent> componentType;
+        private final int machineTier;
 
         /**
          * Determines what sides the {@link MachineComponent} with this {@link MachineComponentSettings} can be on a {@link MachineCore} <br>
@@ -47,24 +34,13 @@ public class MachineComponentSettings {
         private int maxAmountPerCore = -1;
 
 
-        // region constructors
         private Builder(
-                String name,
                 MachineComponentType<? extends MachineComponent> type,
-                @Nullable InputType inputType
+                int machineTier
         ) {
-            this.name = name;
             this.componentType = type;
+            this.machineTier = machineTier;
         }
-
-        private Builder(
-                String name,
-                MachineComponentType<? extends MachineComponent> type
-        ) {
-            this.name = name;
-            this.componentType = type;
-        }
-        // endregion constructors
 
         public Builder acceptableSide(Direction side) {
             this.appliedOn.add(side);
@@ -85,13 +61,12 @@ public class MachineComponentSettings {
         }
 
         public MachineComponentSettings build() {
-            return new MachineComponentSettings(name, componentType, appliedOn, maxAmountPerCore);
+            return new MachineComponentSettings(componentType, appliedOn, maxAmountPerCore);
         }
 
         @Override
         public String toString() {
-            return "MachineComponentSettings#Builder[final name: " + this.name +
-                    ", final componentType: " + this.componentType +
+            return "MachineComponentSettings#Builderfinal componentType: " + this.componentType +
                     ", appliedOn: " + this.appliedOn +
                     ", maxAmountPerCore: " + this.maxAmountPerCore
                     + "]";

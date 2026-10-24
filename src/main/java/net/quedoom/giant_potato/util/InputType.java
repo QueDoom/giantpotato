@@ -6,8 +6,7 @@ public enum InputType implements StringRepresentable {
     INPUT("input"),
     INPUT_SUCK("suck"),
     OUTPUT("output"),
-    OUTPUT_PUSH("push"),
-    NOT_A_STORAGE_COMPONENT("not_storage")
+    OUTPUT_PUSH("push")
     ;
 
     private final String name;
