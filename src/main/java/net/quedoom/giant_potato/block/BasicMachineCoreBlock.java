@@ -5,7 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.quedoom.giant_potato.block.machine.AbstractMachineCoreBlock;
+import net.quedoom.giant_potato.block.abstracts.AbstractMachineCoreBlock;
 import org.jspecify.annotations.Nullable;
 
 public class BasicMachineCoreBlock extends AbstractMachineCoreBlock {
