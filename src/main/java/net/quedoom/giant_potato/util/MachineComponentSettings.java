@@ -7,19 +7,15 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.*;
 
-public record MachineComponentSettings(MachineComponentType<? extends MachineComponent> componentType, int machineTier,
-                                       List<Direction> appliedOn, int maxAmountPerCore) {
+public record MachineComponentSettings(int machineTier, List<Direction> appliedOn, int maxAmountPerCore) {
     public static <T extends MachineComponent> Builder builder(
-            MachineComponentType<T> machineComponentType, int machineTier) {
+            MachineComponentType machineComponentType, int machineTier) {
         return new Builder(machineComponentType, machineTier);
     }
 
     public static class Builder {
-        /**
-         * What Interface the BlockEntity extends, will most likely be {@link MachineComponent}
-         */
-        private final MachineComponentType<? extends MachineComponent> componentType;
         private final int machineTier;
+        private final MachineComponentType type;
 
         /**
          * Determines what sides the {@link MachineComponent} with this {@link MachineComponentSettings} can be on a {@link MachineCore} <br>
@@ -35,10 +31,10 @@ public record MachineComponentSettings(MachineComponentType<? extends MachineCom
 
 
         private Builder(
-                MachineComponentType<? extends MachineComponent> type,
+                MachineComponentType type,
                 int machineTier
         ) {
-            this.componentType = type;
+            this.type = type;
             this.machineTier = machineTier;
         }
 
@@ -61,12 +57,14 @@ public record MachineComponentSettings(MachineComponentType<? extends MachineCom
         }
 
         public MachineComponentSettings build() {
-            return new MachineComponentSettings(componentType, appliedOn, maxAmountPerCore);
+            return new MachineComponentSettings(machineTier, appliedOn, maxAmountPerCore);
         }
 
         @Override
         public String toString() {
-            return "MachineComponentSettings#Builderfinal componentType: " + this.componentType +
+            return "MachineComponentSettings#Builder[" +
+                      "type: " + this.type +
+                    ", machineTier: " + this.machineTier +
                     ", appliedOn: " + this.appliedOn +
                     ", maxAmountPerCore: " + this.maxAmountPerCore
                     + "]";

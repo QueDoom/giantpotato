@@ -2,20 +2,15 @@ package net.quedoom.giant_potato.util;
 
 import net.quedoom.giant_potato.util.component.MachineComponent;
 
-public record MachineComponentType<T extends MachineComponent>(
-        String name, Class<? extends T> interfaceClass) {
+public record MachineComponentType(String name) {
 
-    public static <T extends MachineComponent> MachineComponentType<T> create(
-            String name, Class<? extends T> interfaceClass) {
-        return new MachineComponentType<>(name, interfaceClass);
+    public static  MachineComponentType create(
+            String name) {
+        return new MachineComponentType(name);
     }
 
     public boolean compareName(String name) {
         return this.name.equals(name);
-    }
-
-    public boolean matchingClass(Class<? extends T> typeClass) {
-        return this.interfaceClass.equals(typeClass);
     }
 
 }

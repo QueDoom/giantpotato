@@ -5,13 +5,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.quedoom.giant_potato.block.machine.AbstractMachineComponent;
-import net.quedoom.giant_potato.init.ModComponentSettings;
-import net.quedoom.giant_potato.util.MachineComponentSettings;
+import net.quedoom.giant_potato.block.abstracts.AbstractMachineComponentBlock;
+import net.quedoom.giant_potato.block.entity.machine.TestMachineComponentEntity;
 import org.jspecify.annotations.Nullable;
 
-public class TestMachineComponentBlock extends AbstractMachineComponent {
+public class TestMachineComponentBlock extends AbstractMachineComponentBlock {
     public TestMachineComponentBlock(Properties properties) {
         super(properties);
     }
@@ -23,6 +21,6 @@ public class TestMachineComponentBlock extends AbstractMachineComponent {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos worldPosition, BlockState blockState) {
-        return null;
+        return new TestMachineComponentEntity(worldPosition, blockState);
     }
 }
