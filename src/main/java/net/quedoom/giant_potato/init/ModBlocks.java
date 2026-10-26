@@ -6,6 +6,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.quedoom.giant_potato.GiantPotato;
 import net.quedoom.giant_potato.block.TestMachineComponentBlock;
 import net.quedoom.giant_potato.block.BasicMachineCoreBlock;
+import net.quedoom.giant_potato.block.abstracts.CableBlock;
+import net.quedoom.giant_potato.block.machine.PotatoMachineCore;
 import net.quedoom.quet.init.QueTBlock;
 
 public class ModBlocks {
@@ -15,6 +17,10 @@ public class ModBlocks {
 
     public static final Block TEST_MACHINE_COMPONENT = Q.register("test_machine_component", TestMachineComponentBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE));
 
+    public static final Block POTATO_CORE = Q.register("potato_core", PotatoMachineCore::new, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE));
+
+    public static final Block COPPER_ENERGY_CABLE = Q.register("copper_energy_cable", p -> new CableBlock(p, ModTags.Blocks.ENERGY_CABLES, 6), BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL).noOcclusion().dynamicShape());
+    public static final Block GOLD_ENERGY_CABLE = Q.register("gold_energy_cable", p -> new CableBlock(p, ModTags.Blocks.ENERGY_CABLES, 6), BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL).noOcclusion().dynamicShape());
 
     public static void register( ) { }
 }

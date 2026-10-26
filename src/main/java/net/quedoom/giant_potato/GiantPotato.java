@@ -6,8 +6,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 
 import net.quedoom.giant_potato.api.LoadedMods;
+import net.quedoom.giant_potato.init.ModBlockEntities;
 import net.quedoom.giant_potato.init.ModBlocks;
 import net.quedoom.giant_potato.init.ModCreativeModeTabs;
+import net.quedoom.giant_potato.init.ModItems;
+import net.quedoom.quet.datagen.lang.QTTranslationBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,8 +33,12 @@ public class GiantPotato implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LoadedMods.set();
+		QTTranslationBuilder.SHOULD_AUTO_TRANSLATE_BY_DEFAULT = true;
+
+		ModItems.register();
 
 		ModBlocks.register();
+		ModBlockEntities.register();
 
 		ModCreativeModeTabs.register();
 	}
